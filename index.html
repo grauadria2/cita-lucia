@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Adrià &amp; Lucia · La ruta</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,500;1,500&family=Manrope:wght@400;600;700&display=swap">
+<style>
+:root{--bg:#141414;--ink:#F2EEE8;--soft:#D8D2CA;--mute:#BDB7AF;--faint:#9C968E;--accent:#9E1B1B;--err:#E9A99A;--line:rgba(242,238,232,.3)}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:Manrope,system-ui,sans-serif}
+body{min-height:100vh;display:flex;justify-content:center;padding:20px 16px}
+.card{width:100%;max-width:420px;border:1px solid var(--line);border-radius:18px;padding:32px 24px 28px;display:flex;flex-direction:column;gap:28px;align-self:flex-start}
+.head{text-align:center;display:flex;flex-direction:column;gap:8px}
+.eyebrow{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--mute);font-weight:600}
+h1{margin:0;font-family:'Bodoni Moda',serif;font-style:italic;font-weight:500;font-size:42px;line-height:1.05}
+.stop{display:flex;gap:16px}
+.rail{display:flex;flex-direction:column;align-items:center;gap:6px;padding-top:2px}
+.dot{width:30px;height:30px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;flex-shrink:0}
+.dot.dashed{background:transparent;border:2px dashed rgba(242,238,232,.45);color:var(--mute)}
+.track{flex-grow:1;border-left:2px dashed var(--line)}
+.body{display:flex;flex-direction:column;gap:6px;flex-grow:1;min-width:0}
+.body.first{padding-bottom:22px}
+.label{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--mute);font-weight:600}
+.name{font-family:'Bodoni Moda',serif;font-size:28px;line-height:1.1}
+.addr{font-size:14px;color:var(--soft)}
+.btn{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 18px;border-radius:999px;background:var(--accent);color:#fff;text-decoration:none;font-weight:700;font-size:14px;margin-top:8px;align-self:flex-start}
+.tease{font-family:'Bodoni Moda',serif;font-style:italic;font-size:22px;color:var(--soft)}
+.sub{font-size:14px;color:var(--mute)}
+.row{display:flex;align-items:baseline;justify-content:space-between;gap:8px}
+.blanks{font-size:18px;letter-spacing:6px;font-weight:700}
+.tries{font-size:11px;letter-spacing:1px;color:var(--faint)}
+.form{display:flex;gap:8px}
+input{flex-grow:1;min-width:0;min-height:44px;padding:0 14px;border-radius:12px;border:1px solid rgba(242,238,232,.4);background:rgba(242,238,232,.06);color:var(--ink);font:15px Manrope,sans-serif}
+input::placeholder{color:#8F8A83}
+button{min-height:44px;padding:0 16px;border-radius:12px;border:0;background:var(--accent);color:#fff;font:700 14px Manrope,sans-serif;cursor:pointer}
+.hint{font-size:13px;color:var(--err);min-height:1em}
+.giveup{align-self:flex-start;background:transparent;color:var(--mute);font-weight:400;font-size:13px;text-decoration:underline;padding:0 4px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+[hidden]{display:none!important}
+.locked{display:flex;flex-direction:column;gap:10px}
+.reveal{display:flex;flex-direction:column;gap:6px;animation:in .5s ease}
+@keyframes in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<main class="card">
+  <div class="head">
+    <span class="eyebrow">La cita de los jueves</span>
+    <h1>Adrià &amp; Lucia</h1>
+  </div>
+
+  <section class="stop">
+    <div class="rail"><div class="dot">1</div><div class="track"></div></div>
+    <div class="body first">
+      <span class="label">21:45 · Cena</span>
+      <span class="name">Pizza Bar</span>
+      <span class="addr">C/ París, 205 · Barcelona</span>
+      <a class="btn" href="https://maps.app.goo.gl/Yz7tfdrJodemvCAM7" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+        Cómo llegar
+      </a>
+    </div>
+  </section>
+
+  <section class="stop" style="margin-top:-28px">
+    <div class="rail"><div class="dot dashed">2</div></div>
+    <div class="body" style="padding-top:4px">
+      <span class="label">Después · a 400 m, 5 min a pie</span>
+
+      <div class="locked" id="locked">
+        <span class="tease">Una charcutería…</span>
+        <span class="sub" style="margin-top:-6px">o eso parece. Adivina el nombre para ver dónde es.</span>
+        <div class="row">
+          <span class="blanks" aria-label="7 letras">_ _ _ _ _ _ _</span>
+          <span class="tries" id="tries">3 intentos</span>
+        </div>
+        <form class="form" id="form" autocomplete="off">
+          <label for="guess" class="sr">Nombre del sitio</label>
+          <input id="guess" type="text" placeholder="Escribe el nombre" autocapitalize="off" autocorrect="off" spellcheck="false">
+          <button type="submit">Probar</button>
+        </form>
+        <span class="hint" id="hint" aria-live="polite"></span>
+        <button type="button" class="giveup" id="giveup" hidden>Me rindo, enséñamelo</button>
+      </div>
+
+      <div class="reveal" id="reveal" hidden>
+        <span class="name">Focacha</span>
+        <span class="addr">C/ Tuset, 17 · Barcelona</span>
+        <span class="sub" style="font-style:italic">Cruza la charcutería. Lo bueno está dentro.</span>
+        <a class="btn" href="https://maps.app.goo.gl/uWP4sz11JnuTSoXG6" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+          Cómo llegar
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+(function () {
+  var KEY = 'cita-lucia';
+  var HINTS = ['Casi… piensa en pan italiano.', 'Frío, frío. Empieza por F.', 'Ya casi: F O C _ C _ A'];
+  var state = { tries: 0, unlocked: false };
+  try { var s = JSON.parse(localStorage.getItem(KEY) || '{}'); state.tries = s.tries || 0; state.unlocked = !!s.unlocked; } catch (e) {}
+
+  var $ = function (id) { return document.getElementById(id); };
+  function save() { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} }
+  function norm(s) { return (s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z]/g, ''); }
+
+  function render() {
+    $('locked').hidden = state.unlocked;
+    $('reveal').hidden = !state.unlocked;
+    var left = 3 - state.tries;
+    $('tries').textContent = left <= 0 ? 'Sin intentos' : (left === 1 ? '1 intento' : left + ' intentos');
+    $('hint').textContent = state.tries > 0 ? HINTS[Math.min(state.tries, 3) - 1] : '';
+    $('giveup').hidden = state.tries < 3;
+  }
+
+  $('form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var g = norm($('guess').value);
+    if (!g) return;
+    if (g === 'focacha' || g === 'lafocacha') { state.unlocked = true; }
+    else { state.tries += 1; $('guess').value = ''; }
+    save(); render();
+  });
+  $('giveup').addEventListener('click', function () { state.unlocked = true; save(); render(); });
+
+  render();
+})();
+</script>
+</body>
+</html>
